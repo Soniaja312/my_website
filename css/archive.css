@@ -1,0 +1,306 @@
+/* ── ARCHIVE PAGE ─────────────────────────── */
+
+body { background: var(--cream) !important; }
+
+#topbar {
+  mix-blend-mode: normal !important;
+  color: var(--black);
+}
+
+#topbar .topbar-name,
+#topbar #menu-btn {
+  color: var(--black) !important;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── HEADER ── */
+.archive-header {
+  padding: 8rem 3rem 4rem;
+  border-bottom: 1px solid rgba(10,10,10,0.12);
+}
+
+.archive-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(4rem, 10vw, 9rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin: 0 0 1.2rem;
+}
+
+.archive-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-style: italic;
+  color: rgba(10,10,10,0.55);
+  margin: 0;
+}
+
+/* ── SECTIONS ── */
+.archive-section {
+  padding: 6rem 3rem;
+  border-bottom: 1px solid rgba(10,10,10,0.1);
+}
+
+.archive-section-head {
+  margin-bottom: 3rem;
+}
+
+.archive-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--black);
+  margin: 0 0 0.5rem;
+}
+
+.archive-section-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(10,10,10,0.5);
+  margin: 0;
+}
+
+/* ── REELS STRIP ── */
+.reels-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
+  margin-bottom: 2.5rem;
+  /* hide scrollbar but keep scrollable */
+  scrollbar-width: none;
+}
+.reels-grid::-webkit-scrollbar { display: none; }
+
+.reel-card {
+  position: relative;
+  flex: 0 0 320px;
+  aspect-ratio: 9 / 16;
+  display: block;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #1a1a1a;
+  text-decoration: none;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+
+.reel-card:hover {
+  transform: scale(1.02);
+}
+
+.reel-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.reel-placeholder {
+  background: linear-gradient(160deg, #1a1a1a 0%, #2e2e2e 100%);
+}
+
+.reel-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.3);
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.reel-card:hover .reel-overlay {
+  color: rgba(255,255,255,0.7);
+}
+
+/* hide overlay when video is present */
+.reel-card video ~ .reel-overlay {
+  display: none;
+}
+
+/* ── PARTNERSHIP LINE ── */
+.archive-partnership {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(10,10,10,0.55);
+  margin-top: 2rem;
+}
+
+.archive-partnership a {
+  color: var(--black);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.archive-partnership a:hover {
+  color: var(--blue);
+}
+
+/* ── ESSAYS LIST ── */
+.essays-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 3rem;
+}
+
+.essay-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto auto;
+  column-gap: 2rem;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(10,10,10,0.1);
+  text-decoration: none;
+  color: var(--black);
+  transition: background 0.2s ease;
+}
+
+.essay-item:last-child {
+  border-bottom: 1px solid rgba(10,10,10,0.1);
+}
+
+.essay-item:hover {
+  background: rgba(10,10,10,0.03);
+  margin: 0 -3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.essay-meta {
+  grid-column: 1;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(10,10,10,0.4);
+  margin-bottom: 0.4rem;
+}
+
+.essay-title {
+  grid-column: 1;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+.essay-dek {
+  grid-column: 1;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: rgba(10,10,10,0.6);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.essay-link {
+  grid-column: 2;
+  grid-row: 1 / 4;
+  align-self: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(10,10,10,0.4);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.essay-item:hover .essay-link {
+  color: var(--black);
+}
+
+/* ── RECIPES GRID ── */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: rgba(10,10,10,0.1);
+  margin-bottom: 3rem;
+  border: 1px solid rgba(10,10,10,0.1);
+}
+
+.recipe-card {
+  background: var(--cream);
+  padding: 2.5rem 2rem;
+  text-decoration: none;
+  color: var(--black);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 160px;
+  transition: background 0.2s ease;
+}
+
+.recipe-card:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+.recipe-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+  line-height: 1.25;
+}
+
+.recipe-dek {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: rgba(10,10,10,0.6);
+  margin: 0 0 1.5rem;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.recipe-card:hover .recipe-dek {
+  color: rgba(255,255,255,0.75);
+}
+
+.recipe-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.recipe-card:hover .recipe-link {
+  opacity: 1;
+  color: var(--white);
+}
+
+/* ── SHARED CTA ── */
+.archive-cta {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: var(--black);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease;
+}
+
+.archive-cta:hover {
+  color: var(--blue);
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Sophia Jakel</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div id="menu-overlay" aria-hidden="true">
+    <div class="menu-inner">
+      <nav class="menu-nav">
+        <a href="index.html"       class="menu-item" data-index="01">Home</a>
+        <a href="about.html"       class="menu-item" data-index="02">About</a>
+        <a href="projects.html"    class="menu-item" data-index="03">Projects</a>
+        <a href="archive.html"     class="menu-item" data-index="04">Archive</a>
+        <a href="photography.html" class="menu-item" data-index="05">Photography</a>
+      </nav>
+      <div class="menu-footer">
+        <a href="https://sonjakel.substack.com" target="_blank">Substack ↗</a>
+        <a href="https://instagram.com/sonjakel_" target="_blank">Instagram ↗</a>
+        <a href="https://www.linkedin.com/in/sophia-jakel-198600329/" target="_blank">LinkedIn ↗</a>
+        <a href="mailto:sofochka.j@gmail.com">Email ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="site" class="visible">
+
+    <div id="topbar">
+      <a href="index.html" class="topbar-name">Sophia Jakel</a>
+      <button id="menu-btn" aria-label="Open menu">Menu</button>
+    </div>
+
+    <header class="projects-header reveal">
+      <h1 class="projects-title">Projects</h1>
+      <p class="projects-sub">Things I'm building, researching, and betting on.</p>
+    </header>
+
+    <div class="features">
+
+      <!-- 00 — Seva -->
+      <div class="feature">
+        <span class="feature-number">00</span>
+        <div class="feature-main">
+          <span class="feature-tag">Startup · Health Tech</span>
+          <h2 class="feature-title">Co-Founder at Seva</h2>
+          <p class="feature-dek">Building a mobile dashboard that lifts the communication burden off families caring for a loved one with dementia — tracking medications, appointments, bills, caregiver visits, and in-home hardware all in one place.</p>
+          <span class="feature-meta">Early Stage · In Development</span>
+        </div>
+      </div>
+
+      <!-- 01 — GE Vernova -->
+      <div class="feature feature--hero reveal">
+        <span class="feature-number">01</span>
+        <div class="feature-main">
+          <div class="feature-text">
+            <span class="feature-tag">Energy · Manufacturing</span>
+            <h2 class="feature-title">GE Vernova — Instrument Transformer Engineering</h2>
+            <p class="feature-dek">Gaining hands-on manufacturing and industry experience at GE Vernova's largest and fastest-growing site. I'm learning the grid at every level, from the shop floor to the infrastructure that keeps it controllable and safe, especially as we increase the stress with the rise of data centers. Also making some incredible friendships and connections with my coworkers along the way.</p>
+            <span class="feature-meta">Clearwater, FL · Summer 2026</span>
+          </div>
+
+          <!--
+            TO ADD MORE PHOTOS TO THIS CAROUSEL:
+            Copy one .carousel-slide, one .carousel-caption, and one dot button —
+            update the image src/alt, caption text, and the button's data-index.
+          -->
+          <div class="feature-carousel">
+            <div class="carousel-track">
+              <div class="carousel-slide is-active">
+                <img src="photography/GE_safetyday.jpeg" alt="Sophia and coworkers volunteering for Safety Day at the GE Vernova Clearwater site" />
+              </div>
+            </div>
+            <div class="carousel-captions">
+              <p class="carousel-caption is-active">Me and my coworkers volunteering for Safety Day at the Clearwater site.</p>
+            </div>
+            <div class="carousel-dots">
+              <button class="carousel-dot is-active" data-index="0" aria-label="Slide 1"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 — PAC Experiment -->
+      <div class="feature reveal">
+        <span class="feature-number">02</span>
+        <div class="feature-main">
+          <span class="feature-tag">Science · Fusion Energy</span>
+          <h2 class="feature-title">PAC Experiment — Columbia Fusion Research Center</h2>
+          <p class="feature-dek">Part of Pellets at Columbia (PAC), an experiment group focused on fueling and cooling plasma by freezing gas into small pellets and shooting them through a vacuum chamber with an electron beam.</p>
+          <span class="feature-meta">Columbia University · Pellets at Columbia</span>
+        </div>
+      </div>
+
+      <!-- 03 — Student Venture Associate -->
+      <div class="feature reveal">
+        <span class="feature-number">03</span>
+        <div class="feature-main">
+          <span class="feature-tag">Climate Tech · Ventures</span>
+          <h2 class="feature-title">Student Venture Associate — Columbia Tech Ventures</h2>
+          <p class="feature-dek">Working with early-stage startups securing NYSERDA funding through the Carbontech Development Institution. Planning the Climate Week Summit. Getting very involved in what's next for climate tech in New York.</p>
+          <span class="feature-meta">Columbia Tech Ventures · NYSERDA · New</span>
+        </div>
+      </div>
+
+      <!-- 04 — Fencing / Social Media Committee -->
+      <div class="feature reveal">
+        <span class="feature-number">04</span>
+        <div class="feature-main">
+          <span class="feature-tag">Media · Athletics</span>
+          <h2 class="feature-title">Columbia Fencing — Social Media Committee</h2>
+          <p class="feature-dek">Beyond competing épée for Columbia's Div. I team, I run content for Columbia Fencing's social media committee — shooting and editing sports highlights, conducting post-meet interviews, and documenting the team's season for the official Columbia Fencing Instagram.</p>
+          <span class="feature-meta">Columbia Athletics · Épée · Social Media Committee</span>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-left">
+        <span>Sophia Jakel</span>
+        <span class="footer-sub">New York City</span>
+      </div>
+      <div class="footer-right">
+        <a href="https://sonjakel.substack.com" target="_blank">Substack</a>
+        <a href="https://instagram.com/sonjakel_" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/sophia-jakel-198600329/" target="_blank">LinkedIn</a>
+        <a href="mailto:sofochka.j@gmail.com">Email</a>
+        <a href="Sophia_Jakel_Resume_.pdf" download>Resume ↓</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

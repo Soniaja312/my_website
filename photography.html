@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Photography — Sophia Jakel</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/photography.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- MENU OVERLAY -->
+  <div id="menu-overlay" aria-hidden="true">
+    <div class="menu-inner">
+      <nav class="menu-nav">
+        <a href="index.html"       class="menu-item" data-index="01">Home</a>
+        <a href="about.html"       class="menu-item" data-index="02">About</a>
+        <a href="projects.html"    class="menu-item" data-index="03">Projects</a>
+        <a href="archive.html"     class="menu-item" data-index="04">Archive</a>
+        <a href="photography.html" class="menu-item" data-index="05">Photography</a>
+      </nav>
+      <div class="menu-footer">
+        <a href="https://sonjakel.substack.com" target="_blank">Substack ↗</a>
+        <a href="https://instagram.com/sonjakel_" target="_blank">Instagram ↗</a>
+        <a href="https://www.linkedin.com/in/sophia-jakel-198600329/" target="_blank">LinkedIn ↗</a>
+        <a href="mailto:sofochka.j@gmail.com">Email ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="site" class="visible">
+
+    <!-- TOP BAR -->
+    <div id="topbar">
+      <a href="index.html" class="topbar-name">Sophia Jakel</a>
+      <button id="menu-btn" aria-label="Open menu">Menu</button>
+    </div>
+
+    <!-- PAGE HEADER -->
+    <header class="photo-header">
+      <h1 class="photo-title">Photography</h1>
+      <p class="photo-sub">cities. people. food. culture.</p>
+    </header>
+
+    <!-- PHOTO GRID
+         Each .photo-item gets a size class:
+           (no class) = 1 column wide, auto height
+           .wide      = 2 columns wide
+           .full      = 3 columns wide (full width)
+           .tall      = taller crop
+
+         To add a photo: copy one <figure> block and update src + alt.
+    -->
+    <div class="photo-grid">
+
+      <!-- ROW 1: NYC street wide + portrait -->
+      <figure class="photo-item wide">
+        <img src="photography/R0000123.JPG" alt="NYC intersection, East Village" loading="lazy" />
+      </figure>
+      <figure class="photo-item tall">
+        <img src="photography/R0000117.JPG" alt="Sophia in the park" loading="lazy" />
+      </figure>
+
+      <!-- ROW 2: film trio -->
+      <figure class="photo-item">
+        <img src="photography/R0000104.JPG" alt="East Village street, summer" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/R0000108.JPG" alt="NYC bagel, cream cheese and tomato" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/R0000130.JPG" alt="NYC fire escapes, warm light" loading="lazy" />
+      </figure>
+
+      <!-- ROW 3: Hudson wide + film -->
+      <figure class="photo-item wide">
+        <img src="photography/R0000113.JPG" alt="Hudson River Park, NYC skyline" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/R0000112.JPG" alt="In the grass" loading="lazy" />
+      </figure>
+
+      <!-- ROW 4: new Ricoh trio -->
+      <figure class="photo-item">
+        <img src="photography/R0000165.JPG" alt="NYC street, film" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/R0000249.JPG" alt="NYC, film" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/R0000252.JPG" alt="NYC, film" loading="lazy" />
+      </figure>
+
+      <!-- ROW 5: new Ricoh wide + single -->
+      <figure class="photo-item wide">
+        <img src="photography/R0000267.JPG" alt="NYC, film" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/R0000274.JPG" alt="NYC, film" loading="lazy" />
+      </figure>
+
+      <!-- ROW 6: new Ricoh pair + NYC digital -->
+      <figure class="photo-item">
+        <img src="photography/R0000291.JPG" alt="NYC, film" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/R0000300.JPG" alt="NYC, film" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/IMG_8672.jpeg" alt="E 13th St, NYC" loading="lazy" />
+      </figure>
+
+      <!-- ROW 7: full-width skyline -->
+      <figure class="photo-item full">
+        <img src="photography/IMG_6330.jpeg" alt="New York City skyline at night" loading="lazy" />
+      </figure>
+
+      <!-- ROW 8: new photos -->
+      <figure class="photo-item">
+        <img src="photography/IMG_0045.jpeg" alt="" loading="lazy" />
+      </figure>
+      <figure class="photo-item wide">
+        <img src="photography/DSC00125.JPG" alt="" loading="lazy" />
+      </figure>
+
+      <!-- ROW 9: new photos -->
+      <figure class="photo-item wide">
+        <img src="photography/IMG_0078.jpeg" alt="" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/IMG_0150.jpeg" alt="" loading="lazy" />
+      </figure>
+
+      <!-- ROW 10: art + architecture -->
+      <figure class="photo-item wide">
+        <img src="photography/IMG_0343.jpeg" alt="Baroque ceiling fresco" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/IMG_3717.jpeg" alt="Sculpture cast workshop" loading="lazy" />
+      </figure>
+
+      <!-- ROW 11: Europe travel -->
+      <figure class="photo-item tall">
+        <img src="photography/IMG_0334.jpeg" alt="Madrid plaza, looking up" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/IMG_0435.JPG" alt="Sophia eating gelato, Madrid" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/IMG_9309.jpeg" alt="A corridor, warm light" loading="lazy" />
+      </figure>
+
+      <!-- ROW 12: new photos -->
+      <figure class="photo-item">
+        <img src="photography/IMG_0384.JPG" alt="" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/IMG_0781.jpeg" alt="" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/IMG_4424.jpeg" alt="" loading="lazy" />
+      </figure>
+
+      <!-- ROW 13: Mediterranean -->
+      <figure class="photo-item wide">
+        <img src="photography/IMG_5087.jpeg" alt="Mediterranean beach, turquoise water" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/IMG_5027.jpeg" alt="Mediterranean cove" loading="lazy" />
+      </figure>
+
+      <!-- ROW 14: mountains full -->
+      <figure class="photo-item full">
+        <img src="photography/IMG_7879.jpeg" alt="Mountain peaks, snow" loading="lazy" />
+      </figure>
+
+      <!-- ROW 15: night life -->
+      <figure class="photo-item">
+        <img src="photography/IMG_0094.JPG" alt="Club, red light" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/IMG_9117.jpeg" alt="DJ console, red light" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/IMG_9314.jpeg" alt="Flowers, red light" loading="lazy" />
+      </figure>
+
+      <!-- ROW 16: people -->
+      <figure class="photo-item tall">
+        <img src="photography/IMG_4529.jpeg" alt="Two friends in a doorway, Madrid" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/IMG_9163.jpeg" alt="Miami, beach view" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/IMG_9889.jpeg" alt="" loading="lazy" />
+      </figure>
+
+      <!-- ROW 17: art installation + mountain road -->
+      <figure class="photo-item wide">
+        <img src="photography/IMG_9105.jpeg" alt="CRT monitor art installation" loading="lazy" />
+      </figure>
+      <figure class="photo-item">
+        <img src="photography/IMG_7986.jpeg" alt="Mountain road in snow" loading="lazy" />
+      </figure>
+
+      <!-- ROW 18: marathon + rooftop -->
+      <figure class="photo-item">
+        <img src="photography/IMG_6879.jpeg" alt="Marathon, pink shirt" loading="lazy" />
+      </figure>
+      <figure class="photo-item wide">
+        <img src="photography/IMG_2675.jpeg" alt="Rooftop at sunset" loading="lazy" />
+      </figure>
+
+    </div><!-- /photo-grid -->
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-left">
+        <span>Sophia Jakel</span>
+        <span class="footer-sub">New York City</span>
+      </div>
+      <div class="footer-right">
+        <a href="https://sonjakel.substack.com" target="_blank">Substack</a>
+        <a href="https://instagram.com/sonjakel_" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/sophia-jakel-198600329/" target="_blank">LinkedIn</a>
+        <a href="mailto:sofochka.j@gmail.com">Email</a>
+        <a href="Sophia_Jakel_Resume_.pdf" download>Resume ↓</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

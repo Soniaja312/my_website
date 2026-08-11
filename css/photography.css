@@ -1,0 +1,117 @@
+/* ============================================
+   PHOTOGRAPHY PAGE — photography.css
+   ============================================ */
+
+/* Force black body on this page */
+body { background: var(--black); }
+
+/* ── PAGE HEADER ──────────────────────────── */
+.photo-header {
+  padding: 8rem 2.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.photo-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3rem, 8vw, 8rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--white);
+}
+
+.photo-sub {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+/* ── PHOTO GRID ───────────────────────────── */
+/* CSS columns = true masonry, zero gaps, no JS */
+.photo-grid {
+  columns: 3;
+  column-gap: 4px;
+  padding: 0 4px 4px;
+}
+
+.photo-item {
+  break-inside: avoid;
+  margin-bottom: 4px;
+  overflow: hidden;
+  display: block;
+  background: #111;
+  /* wide/full/tall classes are ignored in column layout —
+     all photos show at their natural proportions, no gaps */
+}
+
+.photo-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease, opacity 0.3s ease;
+  opacity: 0.92;
+}
+
+.photo-item:hover img {
+  transform: scale(1.02);
+  opacity: 1;
+}
+
+/* ── LIGHTBOX (click to expand) ───────────── */
+/* Clicking a photo opens it full-screen */
+.photo-item { cursor: zoom-in; }
+
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.96);
+  z-index: 500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+#lightbox.open { display: flex; }
+
+#lightbox img {
+  max-width: 92vw;
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+#lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+#lightbox-close:hover { color: var(--white); }
+
+/* ── MOBILE ───────────────────────────────── */
+@media (max-width: 768px) {
+  .photo-header { padding: 6rem 1.2rem 2rem; }
+
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3px;
+    padding: 0 3px 3px;
+  }
+
+  /* On mobile, wide = 2 col (still full width), full = 2 col */
+  .photo-item.wide { grid-column: span 2; aspect-ratio: 4/3; }
+  .photo-item.full { grid-column: span 2; aspect-ratio: 4/3; }
+}

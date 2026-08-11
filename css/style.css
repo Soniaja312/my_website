@@ -1,0 +1,641 @@
+/* ============================================
+   SOPHIA JAKEL — style.css
+   Full-screen immersive redesign
+
+   1. Variables
+   2. Reset & base
+   3. Intro animation
+   4. Top bar
+   5. Menu overlay
+   6. Panels (the scrolling sections)
+   7. Hero panel
+   8. Content panels
+   9. Stream panel
+   10. Footer
+   11. Shared utilities
+   12. Mobile
+   ============================================ */
+
+
+/* ── 1. VARIABLES ─────────────────────────── */
+:root {
+  --black:     #0a0a0a;
+  --white:     #fafaf8;
+  --cream:     #f2ede4;
+  --blue:      #1a6bff;      /* the electric blue for hero text */
+  --red:       #d4391a;      /* accent for tags */
+  --gray:      #888;
+  --light-gray:#ddd;
+
+  --font-display:   'Playfair Display', Georgia, serif;
+  --font-body:      'Inter', system-ui, sans-serif;
+  --font-editorial: 'Cormorant Garamond', Georgia, serif;
+}
+
+
+/* ── 2. RESET & BASE ──────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.hidden  { opacity: 0; pointer-events: none; }
+.visible { opacity: 1; pointer-events: all; transition: opacity 0.8s ease; }
+
+
+/* ── 3. INTRO ANIMATION ───────────────────── */
+#intro {
+  position: fixed;
+  inset: 0;
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease;
+}
+
+#intro.fade-out { opacity: 0; pointer-events: none; }
+
+#intro-name {
+  display: flex;
+  align-items: baseline;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3rem, 9vw, 8rem);
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+
+.intro-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.intro-letter.show { opacity: 1; transform: translateY(0); }
+.intro-space { display: inline-block; width: 0.3em; }
+
+
+/* ── 4. TOP BAR ───────────────────────────── */
+#topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 2rem;
+  mix-blend-mode: difference; /* inverts against whatever's behind it — always readable */
+}
+
+.topbar-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
+
+#menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white);
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+#menu-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: var(--white);
+  transition: width 0.25s ease;
+}
+#menu-btn:hover::after { width: 100%; }
+
+
+/* ── 5. MENU OVERLAY ──────────────────────── */
+#menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--black);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+#menu-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.menu-inner {
+  width: 100%;
+  max-width: 900px;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--white);
+  border-top: 1px solid #222;
+  padding: 0.6rem 0;
+  transition: color 0.2s;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.35s ease, transform 0.35s ease, color 0.2s;
+}
+
+#menu-overlay.open .menu-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stagger each menu item */
+#menu-overlay.open .menu-item:nth-child(1) { transition-delay: 0.05s; }
+#menu-overlay.open .menu-item:nth-child(2) { transition-delay: 0.10s; }
+#menu-overlay.open .menu-item:nth-child(3) { transition-delay: 0.15s; }
+#menu-overlay.open .menu-item:nth-child(4) { transition-delay: 0.20s; }
+#menu-overlay.open .menu-item:nth-child(5) { transition-delay: 0.25s; }
+#menu-overlay.open .menu-item:nth-child(6) { transition-delay: 0.30s; }
+
+.menu-item::before {
+  content: attr(data-index);
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--gray);
+  width: 2rem;
+  flex-shrink: 0;
+}
+
+.menu-item:hover { color: var(--blue); }
+.menu-item:last-child { border-bottom: 1px solid #222; }
+
+.menu-footer {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.menu-footer a {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray);
+  transition: color 0.2s;
+}
+.menu-footer a:hover { color: var(--white); }
+
+/* Close button — top right of overlay */
+#menu-overlay::after {
+  content: '✕';
+  position: absolute;
+  top: 1.4rem;
+  right: 2rem;
+  font-size: 1rem;
+  color: var(--gray);
+  cursor: pointer;
+  font-family: var(--font-body);
+  letter-spacing: 0;
+}
+
+
+/* ── 6. PANELS ────────────────────────────── */
+.panel {
+  min-height: 100svh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+
+/* ── 7. HERO PANEL ────────────────────────── */
+.panel--hero {
+  justify-content: flex-start;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.panel-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.75) 0%,
+    rgba(0,0,0,0.2) 50%,
+    rgba(0,0,0,0.05) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 2.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3rem, 8vw, 9rem);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--blue);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-sub {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 1.8rem;
+  right: 2.5rem;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  z-index: 2;
+}
+
+
+/* ── 8. CONTENT PANELS ────────────────────── */
+
+/* Photography — dark background, image left */
+.panel--photography {
+  background: #111;
+  gap: 0;
+}
+
+/* Recipes — black with large type */
+.panel--recipes {
+  background: var(--black);
+  color: var(--white);
+  padding: 6rem 2.5rem;
+}
+
+/* About — warm cream, image-led */
+.panel--about {
+  background: var(--cream);
+  color: var(--black);
+  gap: 0;
+}
+
+.panel--about .panel-heading,
+.panel--about .panel-desc,
+.panel--about .panel-link { color: var(--black); }
+
+.panel--about .panel-number { color: #aaa; }
+
+/* Places — deep warm dark */
+.panel--projects {
+  background: #0f0d0b;
+  color: var(--white);
+  gap: 0;
+}
+
+/* Two-column layouts */
+.panel-image-left {
+  width: 55%;
+  height: 100svh;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.panel-image-right {
+  width: 45%;
+  height: 100svh;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.panel-image-left--tall {
+  height: 100svh;
+}
+
+.panel-text-right {
+  flex: 1;
+  padding: 4rem 3rem 4rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.panel-text-left {
+  flex: 1;
+  padding: 4rem 4rem 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.panel-full-text {
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.panel-number {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+.panel--essays .panel-number { color: #aaa; }
+
+.panel-heading {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.panel-heading--huge {
+  font-size: clamp(3.5rem, 8vw, 9rem);
+  line-height: 0.95;
+}
+
+.panel-desc {
+  font-family: var(--font-editorial);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  font-style: italic;
+  max-width: 48ch;
+  opacity: 0.8;
+}
+
+.panel-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  width: fit-content;
+  transition: opacity 0.2s;
+}
+.panel-link:hover { opacity: 0.6; }
+
+/* essays panel — dark text on cream */
+.panel--essays .panel-heading,
+.panel--essays .panel-desc,
+.panel--essays .panel-link { color: var(--black); }
+
+
+/* ── 9. STREAM PANEL ──────────────────────── */
+.panel--stream {
+  background: var(--white);
+  color: var(--black);
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 6rem 2.5rem;
+  min-height: auto;
+}
+
+.stream-header {
+  margin-bottom: 2rem;
+  border-bottom: 3px solid var(--black);
+  padding-bottom: 1.2rem;
+}
+
+.stream-heading {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -0.03em;
+}
+
+.stream-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.stream-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 80px;
+  align-items: baseline;
+  gap: 2rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--light-gray);
+  color: var(--black);
+  transition: background 0.15s;
+}
+
+.stream-row:hover {
+  background: var(--cream);
+  margin: 0 -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.stream-row-tag {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.stream-row-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+
+.stream-row-date {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--gray);
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.stream-row--more {
+  grid-template-columns: 1fr;
+  margin-top: 0.5rem;
+  border-bottom: none;
+}
+
+.stream-row--more .stream-row-title {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--black);
+  border-bottom: 1px solid var(--black);
+  padding-bottom: 1px;
+  width: fit-content;
+}
+
+
+/* ── 10. FOOTER ───────────────────────────── */
+.site-footer {
+  background: var(--black);
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 2.5rem 2.5rem;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.footer-left span:first-child {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+.footer-sub {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+.footer-right {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-right a {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s;
+}
+.footer-right a:hover { color: var(--white); }
+
+
+/* ── 11. ABOUT PAGE SHARED STYLES ─────────── */
+/* (imported via about.css) */
+
+
+/* ── 12. MOBILE ───────────────────────────── */
+@media (max-width: 768px) {
+  #topbar { padding: 1.2rem 1.2rem; }
+
+  .hero-content { padding: 0 1.2rem 3rem; }
+
+  .hero-title { font-size: clamp(2.2rem, 10vw, 4rem); }
+
+  .panel--photography,
+  .panel--essays,
+  .panel--projects {
+    flex-direction: column;
+  }
+
+  .panel-image-left,
+  .panel-image-right {
+    width: 100%;
+    height: 50vw;
+  }
+
+  .panel-text-right,
+  .panel-text-left {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .recipes-text { padding: 2rem 1.2rem; width: 100%; }
+
+  .panel--stream { padding: 4rem 1.2rem; }
+
+  .stream-row {
+    grid-template-columns: 90px 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.5rem 1rem;
+  }
+
+  .stream-row-date {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: left;
+  }
+
+  .stream-row-title { grid-column: 2; grid-row: 1 / 3; }
+
+  .menu-inner { padding: 6rem 1.5rem 3rem; }
+
+  .menu-item { font-size: clamp(2rem, 10vw, 3.5rem); }
+
+  .site-footer { flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+}

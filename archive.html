@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Archive — Sophia Jakel</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/archive.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div id="menu-overlay" aria-hidden="true">
+    <div class="menu-inner">
+      <nav class="menu-nav">
+        <a href="index.html"       class="menu-item" data-index="01">Home</a>
+        <a href="about.html"       class="menu-item" data-index="02">About</a>
+        <a href="projects.html"    class="menu-item" data-index="03">Projects</a>
+        <a href="archive.html"     class="menu-item" data-index="04">Archive</a>
+        <a href="photography.html" class="menu-item" data-index="05">Photography</a>
+      </nav>
+      <div class="menu-footer">
+        <a href="https://sonjakel.substack.com" target="_blank">Substack ↗</a>
+        <a href="https://instagram.com/sonjakel_" target="_blank">Instagram ↗</a>
+        <a href="https://www.linkedin.com/in/sophia-jakel-198600329/" target="_blank">LinkedIn ↗</a>
+        <a href="mailto:sofochka.j@gmail.com">Email ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="site" class="visible">
+
+    <div id="topbar">
+      <a href="index.html" class="topbar-name">Sophia Jakel</a>
+      <button id="menu-btn" aria-label="Open menu">Menu</button>
+    </div>
+
+    <!-- HEADER -->
+    <header class="archive-header reveal">
+      <h1 class="archive-title">The Archive</h1>
+      <p class="archive-sub">everything creative: content, reflections, and recipes</p>
+    </header>
+
+    <!-- ── VIDEOS ───────────────────────────── -->
+    <section class="archive-section reveal" id="archive-videos">
+      <div class="archive-section-head">
+        <h2 class="archive-section-title">Videos</h2>
+        <p class="archive-section-desc">Vlogging life in NYC as an engineering major, amateur chef, and Division I athlete.</p>
+      </div>
+
+      <div class="reels-grid">
+        <!--
+          TO ADD A REEL:
+          1. Save the video file (mp4) to the /videos/ folder
+          2. Replace the placeholder div with:
+             <a href="https://instagram.com/sonjakel_" target="_blank" class="reel-card">
+               <video src="videos/your-reel.mp4" muted loop playsinline></video>
+               <div class="reel-overlay"><span>▶</span></div>
+             </a>
+        -->
+        <a href="https://instagram.com/sonjakel_" target="_blank" class="reel-card">
+          <video src="videos/kebab-dinner.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="reel-overlay"><span>▶</span></div>
+        </a>
+        <a href="https://instagram.com/sonjakel_" target="_blank" class="reel-card">
+          <video src="videos/memorial-day-cook.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="reel-overlay"><span>▶</span></div>
+        </a>
+        <a href="https://instagram.com/sonjakel_" target="_blank" class="reel-card">
+          <video src="videos/blueberry-cheesecake-pudding.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="reel-overlay"><span>▶</span></div>
+        </a>
+        <a href="https://instagram.com/sonjakel_" target="_blank" class="reel-card">
+          <video src="videos/fourth-of-july-cake.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="reel-overlay"><span>▶</span></div>
+        </a>
+        <a href="https://instagram.com/sonjakel_" target="_blank" class="reel-card">
+          <video src="videos/upside-down-peach-almond-cake.mp4" muted loop playsinline preload="metadata"></video>
+          <div class="reel-overlay"><span>▶</span></div>
+        </a>
+      </div>
+
+      <div class="archive-partnership">
+        To connect with me about my content, reach out at
+        <a href="mailto:sofochka.j@gmail.com">sofochka.j@gmail.com</a> →
+      </div>
+    </section>
+
+    <!-- ── RECIPES ───────────────────────────── -->
+    <section class="archive-section reveal" id="archive-recipes">
+      <div class="archive-section-head">
+        <h2 class="archive-section-title">Recipes</h2>
+        <p class="archive-section-desc">From the future cookbook.</p>
+      </div>
+
+      <div class="recipes-grid">
+        <a href="https://sonjakel.substack.com/p/scoop-of-the-summer-strawberry-rhubarb" target="_blank" class="recipe-card">
+          <h3 class="recipe-title">Strawberry Rhubarb Pie Ice Cream</h3>
+          <p class="recipe-dek">Why have strawberry rhubarb pie à la mode when you can have it all in one?</p>
+          <span class="recipe-link">Read →</span>
+        </a>
+        <a href="https://sonjakel.substack.com/p/tuscan-white-beans" target="_blank" class="recipe-card">
+          <h3 class="recipe-title">Tuscan White Beans</h3>
+          <p class="recipe-dek">A staple side for summer dinners.</p>
+          <span class="recipe-link">Read →</span>
+        </a>
+        <a href="https://sonjakel.substack.com/p/bone-in-ribeye-and-chimichurri" target="_blank" class="recipe-card">
+          <h3 class="recipe-title">Bone-in Ribeye with Chimichurri</h3>
+          <p class="recipe-dek">The only sauce a good steak deserves.</p>
+          <span class="recipe-link">Read →</span>
+        </a>
+        <a href="https://sonjakel.substack.com/p/blueberry-cheesecake-pudding" target="_blank" class="recipe-card">
+          <h3 class="recipe-title">Blueberry Cheesecake Pudding</h3>
+          <p class="recipe-dek">Fourth of July in a bite.</p>
+          <span class="recipe-link">Read →</span>
+        </a>
+        <a href="https://sonjakel.substack.com/p/vanilla-cardamom-cake-with-raspberry" target="_blank" class="recipe-card">
+          <h3 class="recipe-title">Vanilla Cardamom Cake with Raspberry Jam and Sour Cream Frosting</h3>
+          <p class="recipe-dek">A flavor combination to last all summer.</p>
+          <span class="recipe-link">Read →</span>
+        </a>
+        <a href="https://sonjakel.substack.com/p/heirloom-tomato-and-peach-salad-with" target="_blank" class="recipe-card">
+          <h3 class="recipe-title">Heirloom Tomato &amp; Peach Salad with Burrata and Herbs</h3>
+          <p class="recipe-dek">A quintessential summer salad.</p>
+          <span class="recipe-link">Read →</span>
+        </a>
+      </div>
+
+      <a href="https://sonjakel.substack.com" target="_blank" class="archive-cta">All recipes on Substack →</a>
+    </section>
+
+    <!-- ── ESSAYS & REFLECTIONS ───────────────
+      Hidden for now until real essays are ready (first one: Chicago).
+      Remove this comment wrapper to bring the section back.
+
+    <section class="archive-section reveal" id="archive-essays">
+      <div class="archive-section-head">
+        <h2 class="archive-section-title">Essays &amp; Reflections</h2>
+        <p class="archive-section-desc">Things I've been thinking about, written down.</p>
+      </div>
+
+      <div class="essays-list">
+        <a href="https://sonjakel.substack.com" target="_blank" class="essay-item">
+          <span class="essay-meta">Essay · Coming soon</span>
+          <h3 class="essay-title">Add your essay title here</h3>
+          <p class="essay-dek">Add a short description or pull quote from the piece.</p>
+          <span class="essay-link">Read →</span>
+        </a>
+        <a href="https://sonjakel.substack.com" target="_blank" class="essay-item">
+          <span class="essay-meta">Reflection · Coming soon</span>
+          <h3 class="essay-title">Add your essay title here</h3>
+          <p class="essay-dek">Add a short description or pull quote from the piece.</p>
+          <span class="essay-link">Read →</span>
+        </a>
+        <a href="https://sonjakel.substack.com" target="_blank" class="essay-item">
+          <span class="essay-meta">Essay · Coming soon</span>
+          <h3 class="essay-title">Add your essay title here</h3>
+          <p class="essay-dek">Add a short description or pull quote from the piece.</p>
+          <span class="essay-link">Read →</span>
+        </a>
+      </div>
+
+      <a href="https://sonjakel.substack.com" target="_blank" class="archive-cta">Read more on Substack →</a>
+    </section>
+    -->
+
+    <footer class="site-footer">
+      <div class="footer-left">
+        <span>Sophia Jakel</span>
+        <span class="footer-sub">New York City</span>
+      </div>
+      <div class="footer-right">
+        <a href="https://sonjakel.substack.com" target="_blank">Substack</a>
+        <a href="https://instagram.com/sonjakel_" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/sophia-jakel-198600329/" target="_blank">LinkedIn</a>
+        <a href="mailto:sofochka.j@gmail.com">Email</a>
+        <a href="Sophia_Jakel_Resume_.pdf" download>Resume ↓</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/archive.js"></script>
+</body>
+</html>

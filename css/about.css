@@ -1,0 +1,270 @@
+/* ============================================
+   ABOUT PAGE — about.css
+   Flowing editorial layout, Oliver Jeffers-inspired
+   ============================================ */
+
+body { background: var(--cream) !important; }
+
+#topbar { mix-blend-mode: normal !important; }
+.topbar-name, #menu-btn { color: var(--black) !important; }
+#menu-btn::after { background: var(--black) !important; }
+
+/* ── PAGE WRAPPER ────────────────────────────── */
+.about-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 7rem 1.5rem 6rem;
+}
+
+/* ── MASTHEAD ────────────────────────────────── */
+.about-masthead {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 3px solid var(--black);
+}
+
+.about-name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3rem, 7vw, 6rem);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--black);
+}
+
+.about-nickname {
+  font-family: var(--font-editorial);
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #888;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+/* ── BIO BLOCK: portrait floats right ─────────── */
+.about-bio-block {
+  overflow: hidden; /* clearfix for float */
+  margin-bottom: 4rem;
+}
+
+.about-portrait {
+  float: right;
+  width: 42%;
+  margin: 0 0 2rem 3rem;
+  display: block;
+}
+
+.about-portrait img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.about-bio {
+  font-family: var(--font-editorial);
+  font-size: 1.25rem;
+  line-height: 1.85;
+  color: var(--black);
+  margin-bottom: 1.5rem;
+}
+
+.about-bio-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+/* ── MARATHON BLOCK: image left, section right ── */
+.about-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-bottom: 4rem;
+}
+
+.about-split-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.about-split-content {
+  padding-top: 1rem;
+}
+
+/* ── SECTION TITLES ──────────────────────────── */
+.about-section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--red);
+  margin-bottom: 1rem;
+}
+
+/* ── LISTS ───────────────────────────────────── */
+.about-list {
+  list-style: none;
+  border-top: 1px solid #ccc;
+}
+
+.about-list li {
+  font-family: var(--font-editorial);
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--black);
+  padding: 0.7rem 0 0.7rem 1.4rem;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.about-list li.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  top: 0.8rem;
+  color: var(--red);
+  font-size: 0.8rem;
+}
+
+/* ── INLINE LINKS IN LISTS ───────────────────────── */
+.about-list li a {
+  color: var(--black);
+  text-decoration: none;
+  font-style: italic;
+  transition: color 0.2s ease;
+}
+.about-list li a:hover {
+  color: var(--blue);
+}
+
+/* ── THINKING SECTION: full-width text ─────────── */
+.about-thinking {
+  margin-bottom: 4rem;
+}
+
+/* ── FENCING: full-bleed image ──────────────────── */
+.about-fencing {
+  margin: 0 -3rem 4rem;   /* break out of page padding */
+  overflow: hidden;
+}
+
+.about-fencing img {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+/* ── PROJECTS ────────────────────────────────── */
+.about-projects {
+  list-style: none;
+  border-top: 1px solid #ccc;
+  margin-bottom: 3rem;
+}
+
+.project-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid #ccc;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.project-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--black);
+}
+
+.project-desc {
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  color: #888;
+  letter-spacing: 0.02em;
+}
+
+.project-link {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--black);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  width: fit-content;
+  margin-top: 0.2rem;
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+.project-link:hover { opacity: 0.5; }
+
+/* ── LINKS ROW ───────────────────────────────── */
+.about-links-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--black);
+}
+
+.about-link-pill {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--black);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: color 0.2s;
+}
+.about-link-pill:hover { color: var(--red); }
+
+/* ── FOOTER ──────────────────────────────────── */
+.site-footer { background: var(--black); }
+
+/* ── MOBILE ──────────────────────────────────── */
+@media (max-width: 768px) {
+  .about-page { padding: 5rem 1.2rem 4rem; }
+
+  .about-portrait {
+    float: none;
+    width: 100%;
+    margin: 0 0 2rem 0;
+  }
+
+  .about-split {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-fencing { margin: 0 -1.2rem 3rem; }
+  .about-fencing img { height: 40vh; }
+
+  .about-links-row { gap: 1.2rem; }
+}
