@@ -52,33 +52,29 @@
 
       <div class="reels-grid">
         <!--
-          TO ADD A REEL:
-          1. Save the video file (mp4) to the /videos/ folder
-          2. Replace the placeholder div with:
-             <a href="https://instagram.com/sonjakel_" target="_blank" class="reel-card">
-               <video src="videos/your-reel.mp4" muted loop playsinline></video>
-               <div class="reel-overlay"><span>▶</span></div>
-             </a>
+          Each card: still frame → plays on hover → click opens the Reel on Instagram.
+          The #t=0.1 on each src makes the browser paint the first frame as the still.
+          To point a card at a specific Reel, swap its href for that Reel's URL.
         -->
-        <a href="https://instagram.com/sonjakel_" target="_blank" class="reel-card">
-          <video src="videos/kebab-dinner.mp4" muted loop playsinline preload="metadata"></video>
-          <div class="reel-overlay"><span>▶</span></div>
+        <a href="https://instagram.com/sonjakel_" target="_blank" rel="noopener" class="reel-card" aria-label="Kebab dinner — watch on Instagram">
+          <video src="videos/kebab-dinner.mp4#t=0.1" muted loop playsinline preload="metadata"></video>
+          <span class="reel-badge">Reel</span>
         </a>
-        <a href="https://instagram.com/sonjakel_" target="_blank" class="reel-card">
-          <video src="videos/memorial-day-cook.mp4" muted loop playsinline preload="metadata"></video>
-          <div class="reel-overlay"><span>▶</span></div>
+        <a href="https://instagram.com/sonjakel_" target="_blank" rel="noopener" class="reel-card" aria-label="Memorial Day cook — watch on Instagram">
+          <video src="videos/memorial-day-cook.mp4#t=0.1" muted loop playsinline preload="metadata"></video>
+          <span class="reel-badge">Reel</span>
         </a>
-        <a href="https://instagram.com/sonjakel_" target="_blank" class="reel-card">
-          <video src="videos/blueberry-cheesecake-pudding.mp4" muted loop playsinline preload="metadata"></video>
-          <div class="reel-overlay"><span>▶</span></div>
+        <a href="https://instagram.com/sonjakel_" target="_blank" rel="noopener" class="reel-card" aria-label="Blueberry cheesecake pudding — watch on Instagram">
+          <video src="videos/blueberry-cheesecake-pudding.mp4#t=0.1" muted loop playsinline preload="metadata"></video>
+          <span class="reel-badge">Reel</span>
         </a>
-        <a href="https://instagram.com/sonjakel_" target="_blank" class="reel-card">
-          <video src="videos/fourth-of-july-cake.mp4" muted loop playsinline preload="metadata"></video>
-          <div class="reel-overlay"><span>▶</span></div>
+        <a href="https://instagram.com/sonjakel_" target="_blank" rel="noopener" class="reel-card" aria-label="Fourth of July cake — watch on Instagram">
+          <video src="videos/fourth-of-july-cake.mp4#t=0.1" muted loop playsinline preload="metadata"></video>
+          <span class="reel-badge">Reel</span>
         </a>
-        <a href="https://instagram.com/sonjakel_" target="_blank" class="reel-card">
-          <video src="videos/upside-down-peach-almond-cake.mp4" muted loop playsinline preload="metadata"></video>
-          <div class="reel-overlay"><span>▶</span></div>
+        <a href="https://instagram.com/sonjakel_" target="_blank" rel="noopener" class="reel-card" aria-label="Upside-down peach and almond cake — watch on Instagram">
+          <video src="videos/upside-down-peach-almond-cake.mp4#t=0.1" muted loop playsinline preload="metadata"></video>
+          <span class="reel-badge">Reel</span>
         </a>
       </div>
 
